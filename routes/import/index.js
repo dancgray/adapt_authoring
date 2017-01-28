@@ -16,7 +16,7 @@ server.post('/import', function (request, response, next) {
 
   logger.log('info', 'Starting course import');
 
-  var outputplugin = app.outputmanager.getOutputPlugin(configuration.getConfig('outputPlugin'), function (error, plugin) {
+  var outputplugin = app.outputmanager.getOutputPlugin(app.configuration.getConfig('outputPlugin'), function (error, plugin) {
     if (error) {
       logger.log('error', error);
       return response.status(500).json({
